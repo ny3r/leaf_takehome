@@ -74,10 +74,6 @@ jobs:
         
       - name: Test weather
         run: |
-          docker exec -t roman2 curl http://127.0.0.1:80/weather 
-
-      - name: Close container
-        run: |
-          docker stop roman2
+          docker exec -t roman2 curl http://localhost:80/weather 
 
           
