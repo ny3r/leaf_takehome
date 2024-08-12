@@ -36,8 +36,8 @@ jobs:
         run: |
           pwd
           ls -lrt
-          chmod +x ./lint
-          ./lint
+          chmod +x ./bin/lint
+          ./bin/lint
 
   build:
     name: Build Docker Image
