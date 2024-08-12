@@ -1,4 +1,6 @@
+# Start with a Python base image
 FROM python:3.11-slim
+
 
 # Install system dependencies
 RUN apt-get update \
@@ -11,7 +13,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 RUN poetry config virtualenvs.create false
 WORKDIR /code
-COPY pyproject.toml poetry.lock /code/
+COPY pyproject.toml /code/
 
 # Install Poetry without Dev
 RUN poetry install --no-dev
