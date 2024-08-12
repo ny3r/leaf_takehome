@@ -10,12 +10,15 @@ API_KEY = os.environ["SECURE_WEATHER_API_KEY"]
 
 @app.route("/weather")
 def get_weather():
-    response = requests.get(NWS_API_URL, headers={"X-API-KEY": API_KEY})
+    response = requests.get(NWS_API_URL, headers={"X-API-KEY": API_KEY})  # noqa: E501
 
     data = response.json()
 
     if response.status_code != 200:
-        return (jsonify({"error": "Failed to get weather data"}), response.status_code)
+        return (
+            jsonify({"error": "Failed to get weather data"}),
+            response.status_code,
+        )
 
     latest_observation = data["properties"]
 
@@ -48,4 +51,4 @@ def get_weather():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 80))
-    app.run(debug=True,port=port)
+    app.run(debug=True, port=port)
