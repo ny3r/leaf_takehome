@@ -67,4 +67,14 @@ jobs:
 
       - name: Verify Docker Image
         run: |
-          docker run --rm ${{ secrets.DOCKER_USERNAME }}/ll_takehome:latest
+          docker run -e SECURE_WEATHER_API_KEY=${{SECURE_WEATHER_API_KEY}} -d --name roman2 ${{ secrets.DOCKER_USERNAME }}/ll_takehome:latest
+          
+      - name: Test weather
+        run: |
+          docker exec -it roman2 curl http://127.0.0.1:80/weather 
+
+      - name: Close container
+        run: |
+          docker stop roman2
+
+          
