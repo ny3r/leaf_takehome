@@ -34,6 +34,8 @@ jobs:
 
       - name: Run Linting Script
         run: |
+          pwd
+          ls -lrt
           chmod +x ./lint
           ./lint
 
