@@ -67,10 +67,13 @@ jobs:
 
       - name: Verify Docker Image
         run: |
-          docker run -e SECURE_WEATHER_API_KEY=${{ secrets.SECURE_WEATHER_API_KEY }} -p 80:80 -d --name roman2 ${{ secrets.DOCKER_USERNAME }}/ll_takehome:latest
+          docker run -e SECURE_WEATHER_API_KEY=${{ secrets.SECURE_WEATHER_API_KEY }} -d --name roman2 ${{ secrets.DOCKER_USERNAME }}/ll_takehome:latest
 
       - name: List Running Containers
         run: docker ps
+
+      - name: Sleep for 10 seconds
+        run: sleep 10
         
       - name: Test weather
         run: |
