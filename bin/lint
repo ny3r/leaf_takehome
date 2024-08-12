@@ -2,7 +2,9 @@
 set -e
 
 echo "Running Black..."
-poetry run black ./weather_app --check || echo "Running flake8..."
+poetry run black ./weather_app --check
+
+echo "Running flake8..."
 poetry run flake8 ./weather_app
 
 echo "Linting complete."
