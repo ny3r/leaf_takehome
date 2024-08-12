@@ -67,7 +67,7 @@ jobs:
 
       - name: Verify Docker Image
         run: |
-          docker run -e SECURE_WEATHER_API_KEY=${{SECURE_WEATHER_API_KEY}} -d --name roman2 ${{ secrets.DOCKER_USERNAME }}/ll_takehome:latest
+          docker run -e SECURE_WEATHER_API_KEY=${{ secrets.SECURE_WEATHER_API_KEY }} -d --name roman2 ${{ secrets.DOCKER_USERNAME }}/ll_takehome:latest
           
       - name: Test weather
         run: |
